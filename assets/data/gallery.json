@@ -1,0 +1,173 @@
+{
+  "categories": [
+    {
+      "id": "venue",
+      "name": "Venue",
+      "folder": "assets/images/gallery/venue",
+      "images": [
+        {
+          "filename": "DSC06956.JPG",
+          "alt": "Dsc06956"
+        },
+        {
+          "filename": "DSC06957 2.JPG",
+          "alt": "Dsc06957 2"
+        },
+        {
+          "filename": "DSC06967.JPG",
+          "alt": "Dsc06967"
+        },
+        {
+          "filename": "DSC06977.JPG",
+          "alt": "Dsc06977"
+        },
+        {
+          "filename": "DSC06978.JPG",
+          "alt": "Dsc06978"
+        },
+        {
+          "filename": "IMG_1549.JPG",
+          "alt": "Img 1549"
+        },
+        {
+          "filename": "IMG_2847.jpg",
+          "alt": "Img 2847"
+        },
+        {
+          "filename": "IMG_2849.jpg",
+          "alt": "Img 2849"
+        },
+        {
+          "filename": "IMG_3348.jpg",
+          "alt": "Img 3348"
+        },
+        {
+          "filename": "IMG_3585.JPG",
+          "alt": "Img 3585"
+        },
+        {
+          "filename": "IMG_3586.JPG",
+          "alt": "Img 3586"
+        },
+        {
+          "filename": "IMG_3587.JPG",
+          "alt": "Img 3587"
+        },
+        {
+          "filename": "IMG_3588.JPG",
+          "alt": "Img 3588"
+        },
+        {
+          "filename": "IMG_3589.JPG",
+          "alt": "Img 3589"
+        },
+        {
+          "filename": "IMG_3590.JPG",
+          "alt": "Img 3590"
+        },
+        {
+          "filename": "IMG_3591.JPG",
+          "alt": "Img 3591"
+        },
+        {
+          "filename": "IMG_3594.JPG",
+          "alt": "Img 3594"
+        },
+        {
+          "filename": "IMG_3595.JPG",
+          "alt": "Img 3595"
+        },
+        {
+          "filename": "IMG_3596.JPG",
+          "alt": "Img 3596"
+        },
+        {
+          "filename": "IMG_3597.JPG",
+          "alt": "Img 3597"
+        },
+        {
+          "filename": "IMG_3598.JPG",
+          "alt": "Img 3598"
+        },
+        {
+          "filename": "IMG_3599.JPG",
+          "alt": "Img 3599"
+        },
+        {
+          "filename": "IMG_3600.JPG",
+          "alt": "Img 3600"
+        },
+        {
+          "filename": "IMG_3601.JPG",
+          "alt": "Img 3601"
+        },
+        {
+          "filename": "IMG_3602.JPG",
+          "alt": "Img 3602"
+        },
+        {
+          "filename": "IMG_3603.JPG",
+          "alt": "Img 3603"
+        },
+        {
+          "filename": "IMG_3604.JPG",
+          "alt": "Img 3604"
+        },
+        {
+          "filename": "IMG_3861.PNG",
+          "alt": "Img 3861"
+        },
+        {
+          "filename": "IMG_3862.PNG",
+          "alt": "Img 3862"
+        },
+        {
+          "filename": "IMG_3863.PNG",
+          "alt": "Img 3863"
+        },
+        {
+          "filename": "IMG_4269.jpg",
+          "alt": "Img 4269"
+        },
+        {
+          "filename": "IMG_4279.jpg",
+          "alt": "Img 4279"
+        },
+        {
+          "filename": "IMG_4281.jpg",
+          "alt": "Img 4281"
+        },
+        {
+          "filename": "IMG_6043.JPG",
+          "alt": "Img 6043"
+        },
+        {
+          "filename": "IMG_6052.JPG",
+          "alt": "Img 6052"
+        },
+        {
+          "filename": "IMG_7919.JPG",
+          "alt": "Img 7919"
+        }
+      ]
+    },
+    {
+      "id": "weddings",
+      "name": "Weddings",
+      "folder": "assets/images/gallery/weddings",
+      "images": []
+    },
+    {
+      "id": "celebrations",
+      "name": "Celebrations",
+      "folder": "assets/images/gallery/celebrations",
+      "images": []
+    },
+    {
+      "id": "corporate",
+      "name": "Corporate",
+      "folder": "assets/images/gallery/corporate",
+      "images": []
+    }
+  ]
+}
