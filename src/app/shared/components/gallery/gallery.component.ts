@@ -1,4 +1,4 @@
-import { Component, HostListener, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { RevealDirective } from '../../directives';
@@ -28,12 +28,16 @@ interface GalleryConfig {
   styleUrls: ['./gallery.component.scss']
 })
 export class GalleryComponent implements OnInit {
+  @Input() previewCount: number = 8; // Show only 8 images by default on homepage
+  
   categories: string[] = ['All'];
   activeCategory = 'All';
   
   lightboxOpen = false;
   lightboxIndex = 0;
   isLoading = true;
+  showFullGallery = false;
+  private savedScrollPosition = 0;
 
   images: GalleryImage[] = [];
 
@@ -46,7 +50,6 @@ export class GalleryComponent implements OnInit {
   private loadGalleryConfig(): void {
     this.http.get<GalleryConfig>('assets/data/gallery.json').subscribe({
       next: (config) => {
-        console.log('Gallery config loaded:', config);
         // Build categories array
         this.categories = ['All', ...config.categories.map(cat => cat.name)];
         
@@ -61,7 +64,6 @@ export class GalleryComponent implements OnInit {
             });
           });
         });
-        console.log('Images loaded:', this.images.length);
         this.isLoading = false;
       },
       error: (err) => {
@@ -78,8 +80,32 @@ export class GalleryComponent implements OnInit {
     return this.images.filter(img => img.category === this.activeCategory);
   }
 
+  get previewImages(): GalleryImage[] {
+    return this.filteredImages.slice(0, this.previewCount);
+  }
+
+  get hasMoreImages(): boolean {
+    return this.filteredImages.length > this.previewCount;
+  }
+
+  get remainingCount(): number {
+    return this.filteredImages.length - this.previewCount;
+  }
+
   setCategory(category: string): void {
     this.activeCategory = category;
+  }
+
+  openFullGallery(): void {
+    this.savedScrollPosition = window.scrollY;
+    this.showFullGallery = true;
+    document.body.style.overflow = 'hidden';
+  }
+
+  closeFullGallery(): void {
+    this.showFullGallery = false;
+    document.body.style.overflow = '';
+    window.scrollTo(0, this.savedScrollPosition);
   }
 
   openLightbox(index: number): void {
@@ -90,7 +116,9 @@ export class GalleryComponent implements OnInit {
 
   closeLightbox(): void {
     this.lightboxOpen = false;
-    document.body.style.overflow = '';
+    if (!this.showFullGallery) {
+      document.body.style.overflow = '';
+    }
   }
 
   nextImage(event: Event): void {
@@ -105,14 +133,18 @@ export class GalleryComponent implements OnInit {
 
   @HostListener('document:keydown', ['$event'])
   onKeydown(event: KeyboardEvent): void {
-    if (!this.lightboxOpen) return;
-    
     if (event.key === 'Escape') {
-      this.closeLightbox();
-    } else if (event.key === 'ArrowRight') {
-      this.lightboxIndex = (this.lightboxIndex + 1) % this.filteredImages.length;
-    } else if (event.key === 'ArrowLeft') {
-      this.lightboxIndex = (this.lightboxIndex - 1 + this.filteredImages.length) % this.filteredImages.length;
+      if (this.lightboxOpen) {
+        this.closeLightbox();
+      } else if (this.showFullGallery) {
+        this.closeFullGallery();
+      }
+    } else if (this.lightboxOpen) {
+      if (event.key === 'ArrowRight') {
+        this.lightboxIndex = (this.lightboxIndex + 1) % this.filteredImages.length;
+      } else if (event.key === 'ArrowLeft') {
+        this.lightboxIndex = (this.lightboxIndex - 1 + this.filteredImages.length) % this.filteredImages.length;
+      }
     }
   }
 }
