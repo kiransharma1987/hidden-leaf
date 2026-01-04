@@ -1,0 +1,129 @@
+<section class="enquiry-section" id="enquiry">
+  <div class="enquiry-container">
+    <div class="enquiry-header" reveal>
+      <span class="section-tag">Get in Touch</span>
+      <h2>Plan Your Event</h2>
+      <p>Tell us about your vision, and we'll help bring it to life.</p>
+    </div>
+
+    <form class="enquiry-form" (ngSubmit)="onSubmit()" #enquiryForm="ngForm">
+      <div class="form-row">
+        <div class="form-group" reveal [revealDelay]="100">
+          <label for="name">Full Name *</label>
+          <input 
+            type="text" 
+            id="name" 
+            name="name"
+            [(ngModel)]="formData.name"
+            required
+            placeholder="Your name"
+          />
+        </div>
+
+        <div class="form-group" reveal [revealDelay]="150">
+          <label for="phone">Phone Number *</label>
+          <input 
+            type="tel" 
+            id="phone" 
+            name="phone"
+            [(ngModel)]="formData.phone"
+            required
+            placeholder="+91 00000 00000"
+          />
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group" reveal [revealDelay]="200">
+          <label for="email">Email</label>
+          <input 
+            type="email" 
+            id="email" 
+            name="email"
+            [(ngModel)]="formData.email"
+            placeholder="your@email.com"
+          />
+        </div>
+
+        <div class="form-group" reveal [revealDelay]="250">
+          <label for="eventType">Event Type *</label>
+          <select 
+            id="eventType" 
+            name="eventType"
+            [(ngModel)]="formData.eventType"
+            required
+          >
+            <option value="" disabled>Select event type</option>
+            @for (type of eventTypes; track type) {
+              <option [value]="type">{{ type }}</option>
+            }
+          </select>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group" reveal [revealDelay]="300">
+          <label for="eventDate">Preferred Date</label>
+          <input 
+            type="date" 
+            id="eventDate" 
+            name="eventDate"
+            [(ngModel)]="formData.eventDate"
+          />
+        </div>
+
+        <div class="form-group" reveal [revealDelay]="350">
+          <label for="guestCount">Expected Guests</label>
+          <select 
+            id="guestCount" 
+            name="guestCount"
+            [(ngModel)]="formData.guestCount"
+          >
+            <option value="" disabled>Select guest count</option>
+            <option value="Under 50">Under 50</option>
+            <option value="50-100">50 - 100</option>
+            <option value="100-200">100 - 200</option>
+            <option value="200-500">200 - 500</option>
+            <option value="500+">500+</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-group full-width" reveal [revealDelay]="400">
+        <label for="message">Tell us about your event</label>
+        <textarea 
+          id="message" 
+          name="message"
+          [(ngModel)]="formData.message"
+          rows="4"
+          placeholder="Share your vision, special requirements, or any questions..."
+        ></textarea>
+      </div>
+
+      <div class="form-actions" reveal [revealDelay]="450">
+        <button 
+          type="submit" 
+          class="submit-btn"
+          [disabled]="!enquiryForm.valid || isSubmitting"
+          magnetic
+        >
+          @if (isSubmitted) {
+            <svg class="check-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+            <span>Sent! Opening WhatsApp...</span>
+          } @else if (isSubmitting) {
+            <span>Sending...</span>
+          } @else {
+            <span>Send Enquiry</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          }
+        </button>
+        <p class="form-note">Your enquiry will be sent via WhatsApp for faster response</p>
+      </div>
+    </form>
+  </div>
+</section>
