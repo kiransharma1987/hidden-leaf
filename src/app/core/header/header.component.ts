@@ -13,7 +13,7 @@ export class HeaderComponent {
   showScrollTop = false;
   activeSection = '';
 
-  private sections = ['hasiru', 'usiru', 'kudli', 'tunga-bhadra', 'enquiry', 'contact'];
+  private sections = ['hasiru', 'usiru', 'kudli', 'tunga-bhadra', 'gallery', 'enquiry', 'contact'];
 
   @HostListener('window:scroll')
   onScroll(): void {

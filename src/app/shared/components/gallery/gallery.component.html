@@ -1,0 +1,87 @@
+<section class="gallery-section" id="gallery">
+  <div class="gallery-container">
+    <div class="gallery-header" reveal>
+      <span class="section-tag">Our Moments</span>
+      <h2>Gallery</h2>
+      <p>A glimpse into the celebrations we've hosted</p>
+    </div>
+
+    @if (isLoading) {
+      <div class="gallery-loading">
+        <p>Loading gallery...</p>
+      </div>
+    } @else {
+      <div class="category-filters" reveal [revealDelay]="200">
+        @for (category of categories; track category) {
+          <button 
+            class="filter-btn"
+            [class.active]="activeCategory === category"
+            (click)="setCategory(category)"
+          >
+            {{ category }}
+          </button>
+        }
+      </div>
+
+      <div class="gallery-grid">
+        @for (image of filteredImages; track image.src; let i = $index) {
+          <div 
+            class="gallery-item" 
+            reveal 
+            [revealDelay]="100 + (i % 6) * 50"
+            (click)="openLightbox(i)"
+          >
+            <img [src]="image.src" [alt]="image.alt" loading="lazy" />
+            <div class="overlay">
+              <span class="category-tag">{{ image.category }}</span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                <line x1="11" y1="8" x2="11" y2="14"></line>
+                <line x1="8" y1="11" x2="14" y2="11"></line>
+              </svg>
+            </div>
+          </div>
+        }
+      </div>
+
+      @if (filteredImages.length === 0) {
+        <div class="gallery-empty">
+          <p>No images found in this category.</p>
+        </div>
+      }
+    }
+  </div>
+</section>
+
+<!-- Lightbox -->
+@if (lightboxOpen) {
+  <div class="lightbox" (click)="closeLightbox()">
+    <button class="lightbox-close" aria-label="Close lightbox">
+      <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="18" y1="6" x2="6" y2="18"></line>
+        <line x1="6" y1="6" x2="18" y2="18"></line>
+      </svg>
+    </button>
+    
+    <button class="lightbox-nav prev" (click)="prevImage($event)" aria-label="Previous image">
+      <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="15 18 9 12 15 6"></polyline>
+      </svg>
+    </button>
+    
+    <div class="lightbox-content" (click)="$event.stopPropagation()">
+      <img [src]="filteredImages[lightboxIndex].src" [alt]="filteredImages[lightboxIndex].alt" />
+      <div class="lightbox-caption">
+        <span>{{ filteredImages[lightboxIndex].alt }}</span>
+        <span class="counter">{{ lightboxIndex + 1 }} / {{ filteredImages.length }}</span>
+      </div>
+    </div>
+    
+    <button class="lightbox-nav next" (click)="nextImage($event)" aria-label="Next image">
+      <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="9 18 15 12 9 6"></polyline>
+      </svg>
+    </button>
+  </div>
+}
