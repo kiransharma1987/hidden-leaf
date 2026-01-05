@@ -32,7 +32,7 @@ A modern, elegant website for **Hidden Leaf** — a premium venue for weddings, 
 ```bash
 # Clone the repository
 git clone <repository-url>
-cd hidden-leaf-frontend
+cd hidden-leaf
 
 # Install dependencies
 npm install
@@ -54,7 +54,7 @@ Navigate to `http://localhost:4200/`. The app will automatically reload on file 
 npm run build
 ```
 
-Build artifacts are stored in the `dist/hidden-leaf-frontend` directory.
+Build artifacts are stored in the `dist/hidden-leaf` directory.
 
 ## 📁 Project Structure
 

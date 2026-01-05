@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "hidden-leaf-frontend": {
+    "hidden-leaf": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/hidden-leaf-frontend",
+            "outputPath": "dist/hidden-leaf",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -69,10 +69,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "hidden-leaf-frontend:build:production"
+              "buildTarget": "hidden-leaf:build:production"
             },
             "development": {
-              "buildTarget": "hidden-leaf-frontend:build:development"
+              "buildTarget": "hidden-leaf:build:development"
             }
           },
           "defaultConfiguration": "development"

@@ -14,16 +14,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have the 'hidden-leaf-frontend' title`, () => {
+  it(`should have the 'hidden-leaf' title`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('hidden-leaf-frontend');
+    expect(app.title).toEqual('hidden-leaf');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, hidden-leaf-frontend');
+    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, hidden-leaf');
   });
 });
