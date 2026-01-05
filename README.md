@@ -1,59 +1,171 @@
-# HiddenLeafFrontend
+# Hidden Leaf 🌿
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.15.
+A modern, elegant website for **Hidden Leaf** — a premium venue for weddings, corporate events, celebrations, and gatherings. Built with Angular 19 featuring smooth animations, responsive design, and an interactive gallery.
 
-## Development server
+![Angular](https://img.shields.io/badge/Angular-19.2-dd0031?style=flat&logo=angular)
+![TypeScript](https://img.shields.io/badge/TypeScript-5.7-3178c6?style=flat&logo=typescript)
+![SCSS](https://img.shields.io/badge/SCSS-Styling-cc6699?style=flat&logo=sass)
 
-To start a local development server, run:
+## ✨ Features
+
+- **Responsive Design** — Seamless experience across all devices
+- **Smooth Animations** — Custom reveal and parallax directives for elegant transitions
+- **Interactive Gallery** — Filterable image gallery with lightbox support
+- **Venue Sections** — Dedicated sections showcasing different event spaces:
+  - **Hasiru** — The Lawns (open-air weddings & gatherings)
+  - **Usiru** — Indoor venue space
+  - **Kudli** — Intimate event area
+  - **Tunga Bhadra** — Waterside venue
+- **Enquiry Form** — Built-in contact form for event bookings
+- **WhatsApp Integration** — Quick contact button for instant communication
+- **Auto Gallery Scanner** — Drop images into folders and auto-generate gallery config
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+- [Node.js](https://nodejs.org/) (v18 or higher recommended)
+- [Angular CLI](https://angular.io/cli) v19.2+
+
+### Installation
 
 ```bash
+# Clone the repository
+git clone <repository-url>
+cd hidden-leaf-frontend
+
+# Install dependencies
+npm install
+```
+
+### Development Server
+
+```bash
+npm start
+# or
 ng serve
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+Navigate to `http://localhost:4200/`. The app will automatically reload on file changes.
 
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+### Build for Production
 
 ```bash
-ng generate component component-name
+npm run build
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+Build artifacts are stored in the `dist/hidden-leaf-frontend` directory.
+
+## 📁 Project Structure
+
+```
+src/
+├── app/
+│   ├── core/                    # Core layout components
+│   │   ├── header/              # Site header/navigation
+│   │   ├── footer/              # Site footer
+│   │   └── layout/              # Main layout wrapper
+│   │
+│   ├── pages/
+│   │   └── home/                # Home page component
+│   │
+│   ├── sections/                # Page sections
+│   │   ├── hasiru/              # The Lawns venue section
+│   │   ├── usiru/               # Usiru venue section
+│   │   ├── kudli/               # Kudli venue section
+│   │   └── tunga-bhadra/        # Tunga Bhadra venue section
+│   │
+│   └── shared/
+│       ├── components/          # Reusable components
+│       │   ├── enquiry-form/    # Contact/booking form
+│       │   ├── gallery/         # Image gallery with filtering
+│       │   └── whatsapp-button/ # WhatsApp contact button
+│       │
+│       └── directives/          # Custom directives
+│           ├── reveal.directive.ts      # Scroll reveal animations
+│           ├── parallax.directive.ts    # Parallax scrolling effects
+│           ├── magnetic.directive.ts    # Magnetic hover effects
+│           └── image-parallax.directive.ts
+│
+├── assets/
+│   ├── data/
+│   │   └── gallery.json         # Auto-generated gallery config
+│   └── images/
+│       └── gallery/             # Gallery images by category
+│           ├── venue/
+│           ├── weddings/
+│           ├── celebrations/
+│           └── corporate/
+│
+└── styles/
+    └── _tokens.scss             # Design tokens & variables
+```
+
+## 🖼️ Gallery Management
+
+The gallery uses an automated scanner to generate configuration from image files.
+
+### Adding Images
+
+1. Drop images into the appropriate category folder:
+   ```
+   src/assets/images/gallery/
+   ├── venue/
+   ├── weddings/
+   ├── celebrations/
+   └── corporate/
+   ```
+
+2. Run the gallery scanner:
+   ```bash
+   npm run gallery
+   ```
+
+3. The scanner will auto-generate `src/assets/data/gallery.json`
+
+**Tip:** Use descriptive filenames like `outdoor-lawn-setup.jpg` — they're automatically converted to captions: "Outdoor Lawn Setup"
+
+## 🧪 Testing
 
 ```bash
-ng generate --help
+# Run unit tests
+npm test
+
+# Run tests with coverage
+ng test --code-coverage
 ```
 
-## Building
+## 📜 Available Scripts
 
-To build the project run:
+| Command | Description |
+|---------|-------------|
+| `npm start` | Start development server |
+| `npm run build` | Build for production (includes gallery scan) |
+| `npm run watch` | Build in watch mode |
+| `npm test` | Run unit tests |
+| `npm run gallery` | Scan and generate gallery config |
 
-```bash
-ng build
-```
+## 🎨 Styling
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+The project uses SCSS with:
+- **Design Tokens** — Centralized variables in `_tokens.scss`
+- **Component Styles** — Scoped styles per component
+- **Google Fonts** — Inter (body) & Playfair Display (headings)
 
-## Running unit tests
+## 🛠️ Technologies
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+- **Framework:** Angular 19 (Standalone Components)
+- **Styling:** SCSS
+- **Animations:** Custom directives with Intersection Observer
+- **Build Tool:** Angular CLI with esbuild
+- **Image Processing:** Sharp (for optimization scripts)
 
-```bash
-ng test
-```
+## 📄 License
 
-## Running end-to-end tests
+Private project. All rights reserved.
 
-For end-to-end (e2e) testing, run:
+---
 
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+<p align="center">
+  <strong>Hidden Leaf</strong> — Step Into Serenity 🌿
+</p>
