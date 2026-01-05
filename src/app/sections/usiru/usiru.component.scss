@@ -16,10 +16,27 @@
 .usiru__image {
   padding: 4rem;
   overflow: hidden;
+  position: relative;
 
   @media (max-width: 968px) {
-    padding: 0;
+    padding: 1rem;
+    padding-bottom: 0;
     order: 1;
+    
+    &::before {
+      content: 'USIRU';
+      position: absolute;
+      top: 2rem;
+      left: 2rem;
+      font-size: 0.6rem;
+      letter-spacing: 0.25em;
+      color: white;
+      background: rgba(0, 0, 0, 0.4);
+      backdrop-filter: blur(8px);
+      padding: 0.5rem 0.8rem;
+      border-radius: 0.25rem;
+      z-index: 2;
+    }
   }
 }
 
@@ -31,6 +48,7 @@
 
   @media (max-width: 968px) {
     aspect-ratio: 4 / 3;
+    border-radius: 0.5rem;
   }
 }
 

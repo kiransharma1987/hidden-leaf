@@ -7,13 +7,7 @@
   @media (max-width: 968px) {
     grid-template-columns: 1fr;
     min-height: auto;
-    background: linear-gradient(
-      to bottom,
-      #1e201c 0%,
-      #2a2c28 5%,
-      #f6f5f2 5%,
-      #f6f5f2 100%
-    );
+    background: #f6f5f2;
   }
 }
 
@@ -100,7 +94,24 @@ h2 {
   @media (max-width: 968px) {
     order: 1;
     min-height: 50vh;
-    margin: 0;
+    margin: 1rem;
+    margin-bottom: 0;
+    border-radius: 0.5rem;
+    
+    &::before {
+      content: 'HASIRU';
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+      font-size: 0.6rem;
+      letter-spacing: 0.25em;
+      color: white;
+      background: rgba(0, 0, 0, 0.4);
+      backdrop-filter: blur(8px);
+      padding: 0.5rem 0.8rem;
+      border-radius: 0.25rem;
+      z-index: 2;
+    }
   }
 
   @media (max-width: 480px) {
